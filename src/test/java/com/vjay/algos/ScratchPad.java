@@ -18,12 +18,6 @@ public class ScratchPad {
         Assertions.assertEquals(result, "Codality we");
     }
 
-    @Test
-    void test2() {
-        int[] A = {10,10};
-        var val = Arrays.stream(A).boxed().collect(Collectors.toList());
-        Assertions.assertEquals(val.size(), 0);
-    }
 
     @Test
     void test3() {
