@@ -34,7 +34,7 @@ exist in the array is the answer.
 ### 2. Non divisible subset
 
 Given a set of distinct integers, print the size of a maximal subset of `S`
-where the sum of any `2` numbers in `S'` is not evenly divisible by `K`.
+where the sum of any `2` numbers in `S` is not evenly divisible by `K`.
 
 ```
 Sample Input
@@ -49,6 +49,23 @@ Sample Output
 3
 
 ```
+__Solution:__
+Sum of two numbers `a` and `b` are divisible by number `n` if the reminder of `a` divided by `n` 
+and `b` divided by `n` is also divided by `n`. 
+For example, lets take [8,3,4] and n=3 . Here 8%3(2) +4%3(1) = 3 which is again divisile by 3.
+So 8 and 4 cannot be together.
+
+So first we have to create list containing the reminder. For example if s[] = [1,3,2,4,6,11] and `k=7`
+then the reminder list will be `[1,3,2,4,6,4]`. Now we can traverse through the list. 
+In the resultant subset we can have either `1` or `6` . 
+Here, frequency of 1 is equal to 6. So either 1 or 6 has to go into result list
+then, frequency of 3 is less than 4, so we have to include 4.
+next 2 can go into list since there is no number with reminder 5.
+
+In end we have result list [1,2,4,6,4] . So the max length of non-divisible subset is 5.
+
+
+
 ### 3. Magic Square
 We define a magic square to be an  matrix of distinct positive integers from  to  where the sum of any row, column, or diagonal of length  is always equal to the same number: the magic constant.
 
@@ -99,3 +116,30 @@ player = [70,80,105]
 The ranked players will have ranks 1,2,2, and 3, respectively. 
 If the player's scores are 70, 80 and 105, their rankings after each game are 4th, 3rd and 1st. 
 Return `[4,3,1]`.
+
+__Solution:__
+
+First we need to either construct a map of ranking for the `ranked`. For
+example for `[100,90,90,80]` the ranking list should be like `[1,2,2,3]`.
+
+Next we need to find the correct position where the player score can fit it.
+Let's example lets take the score `70` for the input ranked list `[100,90,90,80]`.
+`70` is lesser than last ranked score `80`. so it should rank 5. To obtain that
+we can traverse the list and compare them with each element in ranked. If any of the element in ranked list is lesser that the score with which we compare, then the score will take rank of that particular element. 
+The rank for that element can be obtained from the rank list that we generated earlier. The two other case is if the score is greater than first element it will be ranked 1 and if it is less than last element 
+it will be ranked +1 of the last ranked element. For better performance try using the binary search. 
+
+### 5. Repeated String
+
+There is a string, s, of lowercase English letters that is repeated infinitely many times. Given an integer,n, 
+find and print the number of letter a's in the first n letters of the infinite string.
+
+```
+Example
+
+s = 'abcac'
+n=10
+```
+
+The substring we consider is `abcacabcac`, the first 10 characters of the infinite string. 
+There are 4 occurrences of a in the substring.

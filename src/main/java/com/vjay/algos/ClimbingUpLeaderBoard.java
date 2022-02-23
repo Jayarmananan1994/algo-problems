@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 public class ClimbingUpLeaderBoard {
 
     public List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         List<Integer> rankNum = new ArrayList<>();
         for (int i = 0; i < ranked.size(); i++) {
             if (i == 0) {
