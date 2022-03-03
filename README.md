@@ -143,3 +143,36 @@ n=10
 
 The substring we consider is `abcacabcac`, the first 10 characters of the infinite string. 
 There are 4 occurrences of a in the substring.
+
+### 6. Queen's Move:
+
+You will be given a square chess board with one queen and a number of obstacles placed on it. 
+Determine how many squares the queen can attack.
+
+A queen is standing on an nxn chessboard. The chess board's rows are numbered from 1 to n, going from bottom to top. Its columns are numbered from 1 to n, going from left to right. 
+Each square is referenced by a tuple, (r,c), describing the row, r, and column, c, where the square is located.
+
+The queen is standing at position . In a single move, she can attack any square in any of the eight directions (left, right, up, down, and the four diagonals). In the diagram below, the green circles denote all the cells the queen can attack from :
+
+There are obstacles on the chessboard, each preventing the queen from attacking any square beyond it on that path. For example, an obstacle at location  in the diagram above prevents the queen from attacking cells , , and :
+
+Given the queen's position and the locations of all the obstacles, find and print the number of squares the queen can attack from her position at (r_q,c_q). In the board above, there are 24 such squares.
+```
+Sample Input 1
+
+5 3
+4 3
+5 5
+4 2
+2 3
+
+Sample Output 0
+
+10
+
+Explanation 1
+
+The queen is standing at position 4x3 on a 5x5  chessboard with k=3 obstacles:
+
+The number of squares she can attack from that position is 10.
+```
